@@ -1,0 +1,58 @@
+.header {
+    background: linear-gradient(135deg, #7e05e8 0%, #01c268 100%);
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.title {
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.subtitle {
+    max-width: 500px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+@media only screen and (min-width: 768px) {
+    .header {
+        padding: 60px 40px;
+    }
+
+    .title {
+        font-size: 36px;
+    }
+
+    .subtitle {
+        font-size: 18px;
+        max-width: 600px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .header {
+        padding: 80px 60px;
+    }
+
+    .title {
+        font-size: 48px;
+    }
+
+    .subtitle {
+        font-size: 24px;
+        max-width: 800px;
+    }
+}
