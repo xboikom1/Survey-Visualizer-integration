@@ -8,6 +8,7 @@ import {
   selectCategoriesLoading,
   selectCategoriesError,
 } from "../../redux/categories/selectors";
+import Overview from "../../components/Overview/Overview";
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -25,23 +26,7 @@ const HomePage = () => {
     <>
       <Header />
       <main className={css.pageContainer}>
-        <section id="overview" className={css.overviewSection}>
-          <h2 className={css.overviewTitle}>Discover the World of Trivia</h2>
-          <ul className={css.overviewStats}>
-            <li className={css.statCard}>
-              <span className={css.statNumber}>50+</span>
-              <p className={css.statLabel}>Questions</p>
-            </li>
-            <li className={css.statCard}>
-              <span className={css.statNumber}>10+</span>
-              <p className={css.statLabel}>Categories</p>
-            </li>
-            <li className={css.statCard}>
-              <span className={css.statNumber}>3</span>
-              <p className={css.statLabel}>Difficulty Levels</p>
-            </li>
-          </ul>
-        </section>
+        <Overview />
 
         <section id="categories" className={css.categoriesSection}>
           <h2 className={css.categoriesTitle}>Categories</h2>
