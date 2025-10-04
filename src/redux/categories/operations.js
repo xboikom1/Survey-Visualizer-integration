@@ -4,7 +4,7 @@ import axios from "axios";
 axios.defaults.baseURL = "https://opentdb.com";
 
 export const fetchCategories = createAsyncThunk(
-  "categories/fetchCategoriesWithQuestionCounts",
+  "categories/fetchCategories",
   async (_, thunkAPI) => {
     try {
       const categoriesResponse = await axios.get("/api_category.php");

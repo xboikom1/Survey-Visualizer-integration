@@ -21,9 +21,9 @@ const categoriesSlice = createSlice({
         state.loading = false;
         state.error = null;
       })
-      .addCase(fetchCategories.rejected, (state, action) => {
+      .addCase(fetchCategories.rejected, (state) => {
+        state.error = "Failed to load categories";
         state.loading = false;
-        state.error = action.payload || "Failed to load categories";
       });
   },
 });
