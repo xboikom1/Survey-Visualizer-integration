@@ -1,0 +1,49 @@
+.chartTitle {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tooltip {
+    background: white;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tooltipLabel {
+    font-weight: 600;
+    color: #2d3748;
+    margin: 0 0 8px 0;
+}
+
+.tooltipValue {
+    color: #4a5568;
+    margin: 4px 0;
+}
+
+.tooltipValue span {
+    font-weight: 600;
+    color: #2d3748;
+}
+
+.tooltipPercentage {
+    color: #718096;
+    margin: 4px 0 0 0;
+    font-size: 16px;
+}
+
+@media (min-width: 768px) {
+    .chartTitle {
+        font-size: 24px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .chartTitle {
+        font-size: 28px;
+    }
+}

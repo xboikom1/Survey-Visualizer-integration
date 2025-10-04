@@ -1,0 +1,61 @@
+.statisticsSection {
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.sectionHeader {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.statisticsTitle {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 16px;
+}
+
+.statisticsDescription {
+    font-size: 18px;
+    color: #4a5568;
+    margin: 0 auto 16px;
+    line-height: 1.6;
+}
+
+.dataInfo {
+    font-size: 14px;
+    color: #718096;
+    font-style: italic;
+}
+
+.chartsContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.chart {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px 0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    .statisticsTitle {
+        font-size: 30px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .statisticsTitle {
+        font-size: 32px;
+    }
+}
