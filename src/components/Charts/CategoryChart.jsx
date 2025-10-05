@@ -9,6 +9,7 @@ import {
   Cell,
 } from "recharts";
 import css from "./CategoryChart.module.css";
+import { decodeHtml } from "../../utils/decodeHtml";
 
 const colors = [
   "#0088FE",
@@ -33,7 +34,7 @@ const CategoryChart = ({ data }) => {
 
       return (
         <div className={css.tooltip}>
-          <h4 className={css.tooltipLabel}>{label}</h4>
+          <h4 className={css.tooltipLabel}>{decodeHtml(label)}</h4>
           <p className={css.tooltipValue}>
             Questions: <span>{value}</span>
           </p>
@@ -65,6 +66,7 @@ const CategoryChart = ({ data }) => {
             textAnchor="end"
             height={80}
             fontSize={12}
+            tickFormatter={(tick) => decodeHtml(tick)}
           />
           <YAxis
             label={{

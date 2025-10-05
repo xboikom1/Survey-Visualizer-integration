@@ -3,6 +3,7 @@ import css from "./HomePage.module.css";
 import Overview from "../../components/Overview/Overview";
 import Categories from "../../components/Categories/Categories";
 import Statistics from "../../components/Statistics/Statistics";
+import QuestionsFilter from "../../components/QuestionsFilter/QuestionsFilter";
 
 const HomePage = () => {
   return (
@@ -11,6 +12,7 @@ const HomePage = () => {
       <main className={css.pageContainer}>
         <Overview />
         <Categories />
+        <QuestionsFilter />
         <Statistics />
       </main>
     </>
