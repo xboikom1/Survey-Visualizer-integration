@@ -27,11 +27,13 @@ const QuestionViewer = () => {
   const filteredQuestions = selectedCategory?.value ? questions : [];
 
   const handleCategorySelect = async (selectedOption) => {
-    if (!selectedOption) return;
-
     setSelectedCategory(selectedOption);
     setExpandedQuestions(new Set());
+    setError(null);
     setLoading(true);
+    setQuestions([]);
+
+    if (!selectedOption) return;
     try {
       const response = await axios.get(
         `/api.php?amount=10&category=${selectedOption.value}`

@@ -1,9 +1,11 @@
+import React, { lazy, Suspense } from "react";
 import Header from "../../components/Header/Header";
 import css from "./HomePage.module.css";
 import Overview from "../../components/Overview/Overview";
 import Categories from "../../components/Categories/Categories";
-import Statistics from "../../components/Statistics/Statistics";
 import QuestionsFilter from "../../components/QuestionsFilter/QuestionsFilter";
+import Loader from "../../components/Loader/Loader";
+const Statistics = lazy(() => import("../../components/Statistics/Statistics"));
 
 const HomePage = () => {
   return (
@@ -13,7 +15,9 @@ const HomePage = () => {
         <Overview />
         <Categories />
         <QuestionsFilter />
-        <Statistics />
+        <Suspense fallback={<Loader />}>
+          <Statistics />
+        </Suspense>
       </main>
     </>
   );
