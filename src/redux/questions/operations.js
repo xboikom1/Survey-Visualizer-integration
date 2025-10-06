@@ -29,8 +29,7 @@ export const fetchQuestions = createAsyncThunk(
 
       let response = await axios.get(buildUrl(token));
 
-      if (response.data && response.data.response_code === 0)
-        return response.data.results;
+      if (response.data?.response_code === 0) return response.data.results;
 
       if (
         response.data?.response_code === 3 ||

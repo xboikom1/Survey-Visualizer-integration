@@ -1,18 +1,17 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
-import Select from "react-select";
 import axios from "axios";
-import { selectCategories } from "../../redux/categories/selectors";
 import Loader from "../Loader/Loader";
 import ErrorComponent from "../ErrorComponent/ErrorComponent";
 import css from "./QuestionsFilter.module.css";
 import { decodeHtml } from "../../utils/decodeHtml.js";
+import SelectComponent from "../SelectComponent/SelectComponent.jsx";
+import { selectCategories } from "../../redux/categories/selectors.js";
+import { useSelector } from "react-redux";
 
 const QuestionViewer = () => {
-  const categories = useSelector(selectCategories) || [];
-
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [expandedQuestions, setExpandedQuestions] = useState(new Set());
+  const categories = useSelector(selectCategories);
 
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -39,7 +38,7 @@ const QuestionViewer = () => {
       );
       setQuestions(response.data.results || []);
     } catch (err) {
-      setError(err?.message || "Failed to fetch questions");
+      setError(err.message);
     } finally {
       setLoading(false);
     }
@@ -53,36 +52,6 @@ const QuestionViewer = () => {
     setExpandedQuestions(newExpanded);
   };
 
-  const selectStyles = {
-    control: (base, state) => ({
-      ...base,
-      backgroundColor: "rgba(255, 255, 255, 0.9)",
-      borderColor: state.isFocused ? "#4f46e5" : "rgba(255, 255, 255, 0.3)",
-      borderWidth: "2px",
-      borderRadius: "10px",
-      padding: "4px 8px",
-      fontSize: "16px",
-      boxShadow: state.isFocused ? "0 0 0 3px rgba(79, 70, 229, 0.3)" : "none",
-    }),
-    option: (base, state) => ({
-      ...base,
-      backgroundColor: state.isSelected
-        ? "#4f46e5"
-        : state.isFocused
-        ? "rgba(79, 70, 229, 0.1)"
-        : "white",
-      color: state.isSelected ? "white" : "#333",
-      padding: "16px",
-      cursor: "pointer",
-    }),
-    menu: (base) => ({
-      ...base,
-      borderRadius: "10px",
-      boxShadow: "0 10px 25px rgba(0, 0, 0, 0.15)",
-      zIndex: 100,
-    }),
-  };
-
   return (
     <section className={css.section}>
       <div className={css.container}>
@@ -93,18 +62,11 @@ const QuestionViewer = () => {
           </p>
         </div>
 
-        <div className={css.categorySelector}>
-          <label className={css.label}>Select Category:</label>
-          <Select
-            value={selectedCategory}
-            onChange={handleCategorySelect}
-            options={categoryOptions}
-            styles={selectStyles}
-            placeholder="Choose a category..."
-            isClearable
-            isSearchable
-          />
-        </div>
+        <SelectComponent
+          value={selectedCategory}
+          onChange={handleCategorySelect}
+          options={categoryOptions}
+        />
 
         {selectedCategory?.value && (
           <div className={css.questionsSection}>
