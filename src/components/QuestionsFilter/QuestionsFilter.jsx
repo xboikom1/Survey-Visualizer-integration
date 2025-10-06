@@ -6,7 +6,7 @@ import { selectCategories } from "../../redux/categories/selectors";
 import Loader from "../Loader/Loader";
 import ErrorComponent from "../ErrorComponent/ErrorComponent";
 import css from "./QuestionsFilter.module.css";
-import { decodeHtml } from "../../utils/decodeHtml";
+import { decodeHtml } from "../../utils/decodeHtml.js";
 
 const QuestionViewer = () => {
   const categories = useSelector(selectCategories) || [];
@@ -28,13 +28,10 @@ const QuestionViewer = () => {
   const filteredQuestions = selectedCategory?.value ? questions : [];
 
   const handleCategorySelect = async (selectedOption) => {
-    setSelectedCategory(selectedOption);
-    setExpandedQuestions(new Set());
-    setQuestions([]);
-    setError(null);
-
     if (!selectedOption) return;
 
+    setSelectedCategory(selectedOption);
+    setExpandedQuestions(new Set());
     setLoading(true);
     try {
       const response = await axios.get(

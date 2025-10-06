@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { fetchQuestions } from "../../redux/questions/operations";
-import { calculateDistributions } from "../../redux/questions/slice";
 import {
   selectQuestions,
   selectQuestionsLoading,
@@ -26,9 +25,7 @@ const Statistics = () => {
   useEffect(() => {
     if (questions?.length === 0 && !isLoading && !error) {
       dispatch(fetchQuestions());
-      dispatch(calculateDistributions());
     }
-    dispatch(calculateDistributions());
   }, [dispatch, questions, isLoading, error]);
 
   if (error) return <ErrorComponent>{error}</ErrorComponent>;

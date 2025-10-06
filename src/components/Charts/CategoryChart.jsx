@@ -9,7 +9,7 @@ import {
   Cell,
 } from "recharts";
 import css from "./CategoryChart.module.css";
-import { decodeHtml } from "../../utils/decodeHtml";
+import { decodeHtml } from "../../utils/decodeHtml.js";
 
 const colors = [
   "#0088FE",
